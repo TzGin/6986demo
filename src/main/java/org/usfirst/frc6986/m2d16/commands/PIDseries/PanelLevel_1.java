@@ -5,19 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc6986.m2d16.commands;
-//package org.usfirst.frc6986.m2d16.commands;
+package org.usfirst.frc6986.m2d16.commands.PIDseries;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc6986.m2d16.Robot;
+import java.math.*;
 
-//import java.awt.Robot;
-
-import edu.wpi.first.wpilibj.command.Command;
-
-public class AutoTrack extends Command {
-  public AutoTrack() {
-    requires(Robot.driveTrain);
-    //requires(Robot.trackPanelTest);
+public class PanelLevel_1 extends Command {
+  public PanelLevel_1() {
+    requires(Robot.pidElevate);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -25,30 +21,34 @@ public class AutoTrack extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    setTimeout(.99);
+    Robot.pidElevate.disable();
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.trackPanelTest.Tracl();
+    Robot.pidElevate.enable();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    Robot.pidElevate.disable();
+    Robot.pidElevate.Stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.driveTrain.tankDrive(Robot.oi.joystick1.getRawAxis(1)*0.99, Robot.oi.joystick1.getRawAxis(5)*0.99);
+    end();
   }
 }

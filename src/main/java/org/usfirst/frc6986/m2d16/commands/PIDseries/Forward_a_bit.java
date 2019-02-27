@@ -5,50 +5,48 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc6986.m2d16.commands;
-//package org.usfirst.frc6986.m2d16.commands;
+package org.usfirst.frc6986.m2d16.commands.PIDseries;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc6986.m2d16.Robot;
-
-//import java.awt.Robot;
-
+import java.math.*;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoTrack extends Command {
-  public AutoTrack() {
-    requires(Robot.driveTrain);
-    //requires(Robot.trackPanelTest);
+public class Forward_a_bit extends Command {
+  public Forward_a_bit() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.driveTrain);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    setTimeout(2);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.trackPanelTest.Tracl();
+    Robot.driveTrain.tankDrive(0.2, 0.2);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    Robot.driveTrain.Stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.driveTrain.tankDrive(Robot.oi.joystick1.getRawAxis(1)*0.99, Robot.oi.joystick1.getRawAxis(5)*0.99);
+    end();
   }
 }

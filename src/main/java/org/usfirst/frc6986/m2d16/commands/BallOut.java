@@ -41,6 +41,7 @@ public class BallOut extends Command {
     @Override
     protected void initialize() {
         Robot.claw.HookBack();
+       // Robot.claw.ClawBack();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -40,7 +40,6 @@ public class BallLn extends Command {
     @Override
     protected void initialize() {
         Robot.claw.HookBack();
-        Robot.claw.ClawOut();
     }
 
     // Called repeatedly when this Command is scheduled to run

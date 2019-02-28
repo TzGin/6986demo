@@ -71,7 +71,6 @@ public class TrackPanelTest extends Subsystem {
 		talonSRX10 = new TalonSRX(10);
 		talonSRX11 = new TalonSRX(11);
 		talonSRX12 = new TalonSRX(12);
-		
 
 
 
@@ -98,8 +97,8 @@ public class TrackPanelTest extends Subsystem {
 			double value1 = Double.valueOf(processedString.substring(0, index1));
 			double value2 = Double.valueOf(processedString.substring(index1+1,index2));
       double value3 = Double.valueOf(processedString.substring(index2+1));
-      //double speedAveg;
-      //double arcadeValue;
+      double speedAveg;
+      double arcadeValue;
 
 			
 			double error_s = target_s - value2;
@@ -124,7 +123,7 @@ public class TrackPanelTest extends Subsystem {
 			}
 			last_error_r = error_r;	
 			
-			//System.out.println(speed_r);
+			System.out.println(speed_r);
 			// System.out.println(value3);
 
 			double speedl = 1.3*value1 + 1.5*speed_s + 0.3*speed_r;
@@ -141,9 +140,7 @@ public class TrackPanelTest extends Subsystem {
 			talonSRX11.set(ControlMode.PercentOutput, limitspeed(speedr));
 			talonSRX12.set(ControlMode.PercentOutput, limitspeed(speedr));*/
 			SmartDashboard.putNumber("speedTrack", speedAveg);
-			SmartDashboard.putNumber("differentialTrack", arcadeValue);
-			
-			
+      SmartDashboard.putNumber("differentialTrack", arcadeValue);
       
       
 		} catch (Exception e) {

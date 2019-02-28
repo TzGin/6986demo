@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc6986.m2d16.commands.PIDseries;
-import edu.wpi.first.wpilibj.Joystick;
+
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc6986.m2d16.Robot;
 import java.math.*;

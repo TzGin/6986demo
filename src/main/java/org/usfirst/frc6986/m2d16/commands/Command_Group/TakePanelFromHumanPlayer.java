@@ -5,20 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc6986.m2d16.commands;
+package org.usfirst.frc6986.m2d16.commands.Command Group;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class TakePanel extends CommandGroup {
+public class TakePanelFromHumanPlayer extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public TakePanel() {
-    addSequential(new Ascend(), 0.3);
-    addSequential(new HookBack(), 0.4);
-    addParallel(new Ascend(), 0.3);
-    
-
+  public TakePanelFromHumanPlayer() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

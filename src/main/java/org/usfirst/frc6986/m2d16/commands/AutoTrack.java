@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoTrack extends Command {
   public AutoTrack() {
     requires(Robot.driveTrain);
-    //requires(Robot.trackPanelTest);
+    requires(Robot.trackPanelTest);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -30,7 +30,7 @@ public class AutoTrack extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.trackPanelTest.Tracl();
+    Robot.trackPanelTest.Tracl();
   }
 
   // Make this return true when this Command no longer needs to run execute()
